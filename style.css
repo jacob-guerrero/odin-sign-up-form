@@ -166,7 +166,7 @@ input:required + span::after {
     border-radius: 4px;
     padding: 1px 6px;
     top: -48px;
-    left: 190px;
+    right: 4px;
 }
 input:focus {
     border: 1px solid royalblue;
@@ -181,15 +181,29 @@ input + span::before, .pwd-ver::before  {
     right: 10px;
     top: -24px;
 }
-input:not(input[type='password']):invalid + span::before {
+/* input:not(input[type='password']):invalid + span::before {
     content: "✖";
     color: red;
+} */
+/* input[type='text']:invalid + span::after {
+    background-color: red;
+    width: max-content;
+    content: "Type a valid input";
 }
-  
-input:valid + span::before {
+input[type='email']:invalid + span::after {
+    background-color: red;
+    width: max-content;
+    content: "Type a valid email";
+} */
+
+/* input:valid + span::before {
     content: "✓";
     color: green;
 }
+input:invalid + span::before {
+    content: "✖";
+    color: red;
+} */
 input[type='password']:invalid {
     border: 1px solid crimson;
 }

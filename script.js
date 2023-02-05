@@ -5,6 +5,7 @@ let pw1 = document.getElementById("password1");
 let pw2 = document.getElementById("password2");  
 
 function fillForm() {
+  /* Focus empty inputs */
   if (firstName.value === "") {
     firstName.focus();
   } else if (lastName.value === "") {
@@ -19,17 +20,17 @@ function fillForm() {
 }
 
 function matchPassword(e) {  
-    if((pw1.value === ""))
-    {   
-      /* document.querySelector('.pwd-ver').style.display = 'none'; */
+    if((pw1.value !== pw2.value))
+    {
+      document.querySelector('.pwd-ver').style.display = 'block';
+      pass.forEach(pwd => {
+        pwd.style.borderColor = 'crimson';
+      })
 
       /* Stopping form submit and reset if the validation fails */
-      /* e.preventDefault()
-      return false; */
-    } else if ((pw1.value !== pw2.value)){
-
-      /* alert("Passwords matched"); */
-    }  
+      e.preventDefault()
+      return false;
+    }
 }
 
 const btn = document.querySelector('#btn');
@@ -43,9 +44,12 @@ const pass = document.querySelectorAll('#password1, #password2');
 pass.forEach(pwd => {
   pwd.addEventListener('keyup', () => {
     if((pw1.value !== "") || (pw2.value !== ""))
-      {   
+      {
+        /* Hide span */
         document.querySelector('.pwd-ver').style.display = 'none';
+        pwd.style.borderColor = '#E5E7EB';
       } else {
+        /* Show span */
         document.querySelector('.pwd-ver').style.display = 'block';
       }
   })
