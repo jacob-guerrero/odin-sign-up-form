@@ -89,7 +89,7 @@ body {
 }
 
 .section.first {
-    height: 30%;
+    height: 25%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -103,7 +103,7 @@ body {
 }
 
 .section.second {
-    height: 40%;
+    height: 45%;
     background-color: #f6f6f6;
     box-shadow: 0px 5px 10px rgba(3, 3, 3, 0.1);
     padding: 10px 20px;
@@ -120,6 +120,8 @@ form div {
 h2 {
     width: 100%;
     font-size: 1.8rem;
+    display: flex;
+    align-items: center;
 }
 label {
     font-size: 0.8rem;
@@ -127,11 +129,52 @@ label {
 }
 input {
     appearance: none;
+    outline: none;
     border: 1px solid #E5E7EB;
     border-radius: 4px;
-    background-color: transparent;
+    background-color: #f6f6f6;
     width: 250px;
     padding: 0.4rem 0.8rem;
+}
+input:-webkit-autofill {
+    /* Fix autofill-select bg-color change (blue) */
+    -webkit-box-shadow: 0 0 0 30px #f6f6f6 inset;
+}
+
+input + span {
+    position: relative;
+}
+input:required + span::after {
+    font-size: 0.75rem;
+    position: absolute;
+    content: "required";
+    color: white;
+    background-color: #333;
+    border-radius: 4px;
+    padding: 1px 6px;
+    top: -48px;
+    left: 190px;
+}
+input:focus {
+    border: 1px solid royalblue;
+    box-shadow: 2px 2px 8px rgba(3, 3, 3, 0.3);
+}
+/* input:invalid:not(:placeholder-shown) {
+    border: 1px solid crimson;
+} */
+input + span::before {
+    position: absolute;
+    right: 10px;
+    top: -24px;
+}
+/* input:invalid + span::before {
+    content: "✖";
+    color: red;
+} */
+  
+  input:valid + span::before {
+    content: "✓";
+    color: green;
 }
 
 .section.third {
