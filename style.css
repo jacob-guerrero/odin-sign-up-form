@@ -102,6 +102,7 @@ body {
     margin: 20px 0;
 }
 
+/* Form */
 .section.second {
     height: 45%;
     background-color: #f6f6f6;
@@ -127,6 +128,7 @@ label {
     font-size: 0.8rem;
     font-weight: 500;
 }
+
 input {
     appearance: none;
     outline: none;
@@ -140,10 +142,10 @@ input:-webkit-autofill {
     /* Fix autofill-select bg-color change (blue) */
     -webkit-box-shadow: 0 0 0 30px #f6f6f6 inset;
 }
-
 input + span {
     position: relative;
 }
+
 input:required + span::after {
     font-size: 0.75rem;
     position: absolute;
@@ -162,6 +164,7 @@ input:focus {
 /* input:invalid:not(:placeholder-shown) {
     border: 1px solid crimson;
 } */
+
 input + span::before {
     position: absolute;
     right: 10px;
@@ -172,9 +175,21 @@ input + span::before {
     color: red;
 } */
   
-  input:valid + span::before {
+input:valid + span::before {
     content: "✓";
     color: green;
+}
+input[type='password']:invalid:not(:placeholder-shown) {
+    border: 1px solid crimson;
+}
+#password1:invalid + span::before {
+    content: "* Passwords do not match";
+    width: max-content;
+    font-size: 0.8rem;
+    color: red;
+
+    left: 2px;
+    top: 0px;
 }
 
 .section.third {
