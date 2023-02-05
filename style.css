@@ -153,7 +153,7 @@ input:-webkit-autofill {
     /* Fix autofill-select bg-color change (blue) */
     -webkit-box-shadow: 0 0 0 30px #f6f6f6 inset;
 }
-input + span {
+input + span, .pwd-ver{
     position: relative;
 }
 
@@ -172,19 +172,19 @@ input:focus {
     border: 1px solid royalblue;
     box-shadow: 2px 2px 8px rgba(3, 3, 3, 0.3);
 }
-/* input:invalid:not(:placeholder-shown) {
+/* input:not(input[type='password']):invalid {
     border: 1px solid crimson;
 } */
 
-input + span::before {
+input + span::before, .pwd-ver::before  {
     position: absolute;
     right: 10px;
     top: -24px;
 }
-/* input:invalid + span::before {
+input:not(input[type='password']):invalid + span::before {
     content: "✖";
     color: red;
-} */
+}
   
 input:valid + span::before {
     content: "✓";
@@ -193,7 +193,7 @@ input:valid + span::before {
 input[type='password']:invalid {
     border: 1px solid crimson;
 }
-#password2:invalid + span::before {
+.pwd-ver::before {
     content: "* Passwords do not match";
     width: max-content;
     font-size: 0.8rem;
@@ -201,6 +201,9 @@ input[type='password']:invalid {
 
     left: 10px;
     top: 0px;
+}
+input:valid + span + .pwd-ver::before {
+    display: "none";
 }
 
 .section.third {

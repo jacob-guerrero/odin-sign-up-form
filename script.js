@@ -1,16 +1,38 @@
+let firstName = document.getElementById("first_name");
+let lastName = document.getElementById("last_name");
+let email = document.getElementById("email");
+let pw1 = document.getElementById("password1");  
+let pw2 = document.getElementById("password2");  
+
+function fillForm() {
+  if (firstName.value === "") {
+    firstName.focus();
+  } else if (lastName.value === "") {
+    lastName.focus();
+  } else if (email.value === "") {
+    email.focus();
+  } else if (pw1.value === "") {
+    pw1.focus();
+  } else if (pw2.value === "") {
+    pw2.focus();
+  }
+}
+
 function matchPassword(e) {  
-    let pw1 = document.getElementById("password1").value;  
-    let pw2 = document.getElementById("password2").value;  
-    if((pw1 === pw2) && (pw1 !== ""))
+    if((pw1.value === ""))
     {   
-      alert("Passwords matched");
-    } else {
+      document.querySelector('#pwd-ver').style.display = 'none'
+      /* Stopping form submit and reset if the validation fails */
       e.preventDefault()
       return false;
+    } else if ((pw1.value !== pw2.value)){
+
+      alert("Passwords matched");
     }  
 }
 
 const btn = document.querySelector('#btn');
 btn.addEventListener('click', (e) => {
-    matchPassword(e);
+  fillForm();
+  matchPassword(e);
 })
