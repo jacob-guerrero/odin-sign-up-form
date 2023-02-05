@@ -179,16 +179,16 @@ input:valid + span::before {
     content: "✓";
     color: green;
 }
-input[type='password']:invalid:not(:placeholder-shown) {
+input[type='password']:invalid {
     border: 1px solid crimson;
 }
-#password1:invalid + span::before {
+#password2:invalid + span::before {
     content: "* Passwords do not match";
     width: max-content;
     font-size: 0.8rem;
     color: red;
 
-    left: 2px;
+    left: 10px;
     top: 0px;
 }
 
@@ -254,5 +254,12 @@ p a {
         margin: 0 8px;
 
         font-size: 3rem;
-    }    
+    }
+    
+    .section.first {
+        padding: 15px 20px;
+    }
+    .section.first p:last-child {
+        margin: 20px 0 15px 0;
+    }
 }

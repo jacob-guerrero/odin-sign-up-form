@@ -32,12 +32,12 @@
                 <h2>Let's do this!</h2>
                 <div>
                     <label for="first_name">FIRST NAME *</label>
-                    <input type="text" name="first_name" id="first_name" required>
+                    <input type="text" name="first_name" id="first_name" pattern="^[a-zA-Z]+$" required>
                     <span></span>
                 </div>
                 <div>
                     <label for="last_name">LAST NAME *</label>
-                    <input type="text" name="last_name" id="last_name" required>
+                    <input type="text" name="last_name" id="last_name" pattern="^[a-zA-Z]+$" required>
                     <span></span>
                 </div>
                 <div>
@@ -47,7 +47,7 @@
                 </div>
                 <div>
                     <label for="number">PHONE NUMBER</label>
-                    <input type="tel" name="number" id="number">
+                    <input type="tel" name="number" id="number" pattern="^[0-9]{10}|([0-9]{3}[\s.-]+[0-9]{3}[\s.-]+[0-9]{4})$" placeholder="123 456 7890">
                 </div>
                 <div>
                     <label for="password1">PASSWORD *</label>
