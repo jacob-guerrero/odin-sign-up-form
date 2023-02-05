@@ -21,13 +21,14 @@ function fillForm() {
 function matchPassword(e) {  
     if((pw1.value === ""))
     {   
-      document.querySelector('#pwd-ver').style.display = 'none'
+      /* document.querySelector('.pwd-ver').style.display = 'none'; */
+
       /* Stopping form submit and reset if the validation fails */
-      e.preventDefault()
-      return false;
+      /* e.preventDefault()
+      return false; */
     } else if ((pw1.value !== pw2.value)){
 
-      alert("Passwords matched");
+      /* alert("Passwords matched"); */
     }  
 }
 
@@ -36,3 +37,21 @@ btn.addEventListener('click', (e) => {
   fillForm();
   matchPassword(e);
 })
+
+
+const pass = document.querySelectorAll('#password1, #password2');
+pass.forEach(pwd => {
+  pwd.addEventListener('keyup', () => {
+    if((pw1.value !== "") || (pw2.value !== ""))
+      {   
+        document.querySelector('.pwd-ver').style.display = 'none';
+      } else {
+        document.querySelector('.pwd-ver').style.display = 'block';
+      }
+  })
+});
+
+/* const spans = document.querySelectorAll('.visible');
+spans.forEach(span => {
+  span.style.display = 'none';
+}); */
